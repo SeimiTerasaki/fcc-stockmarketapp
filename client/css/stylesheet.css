@@ -1,0 +1,81 @@
+body{
+  height: 100%;
+  width: 100%;
+}
+
+#wrapper{
+  margin: 30px auto 50px auto;
+  padding: 30px;
+}
+
+#container{
+  margin-top: 30px;
+}
+form{ 
+  border-radius: 10px;
+}
+
+.input-class{
+  width: 100%;
+  display: table;
+  margin: 0px auto 0px auto;
+}
+
+#input-add{
+  width: 95%;
+  margin: auto;
+}
+
+.formAdd{
+    height: 30px;
+    display: block;
+    margin: 8px auto 15px;
+    padding: 0 15px;
+    border: none;
+    border: 2px solid pink;
+}
+
+#formInput{
+  color:#777;
+}
+
+#formInput:hover,
+#formInput:active,
+#formInput:focus,
+#formInput:visited{
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#formBtn{
+background-color: #dff0d8;
+  color: #3c763d;
+  border-radius: 0 4px 4px 0;
+  margin-left: -3px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+#formBtn:hover,
+#formBtn:focus{
+  background-color:#3c763d;
+  color:#fff;
+}
+
+input:-webkit-autofill{
+  background-color: #fff;
+}
+
+/*****Stock Div ******/
+
+#stockNames{
+  margin: 5px auto;
+}
+
+#stockDiv{
+  margin: 5px;
+}
+
+.panel-heading{
+  text-transform: uppercase;
+}
