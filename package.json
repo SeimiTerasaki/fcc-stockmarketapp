@@ -10,7 +10,6 @@
     "express": "3.2.6",
     "mongodb": "2.2.11",
     "socket.io": "0.9.17",
-    "yahoo-finance": "0.2.14",
-    "google-finance": "0.1.9"
+    "yahoo-finance": "0.2.14"
   }
 }
