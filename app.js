@@ -4,7 +4,6 @@ var socketio = require('socket.io')
   , http = require('http')
   , path = require('path')
   , mongodb = require('mongodb')
-  , cts = require('check-ticker-symbol')
   , yahooFinance = require('yahoo-finance');
   
 var app = express();
@@ -43,7 +42,6 @@ MongoClient.connect(process.env.MONGO_URI,function(err,db){
   };
   
    function getComp(data){
-    console.log(data);
      var names = data.reduce(function(a, b) { 
   return a.concat(b);
       }, []);
@@ -53,28 +51,22 @@ MongoClient.connect(process.env.MONGO_URI,function(err,db){
       }, function (err, snapshot) {
         if(err) throw err;
         else{
-        console.log(snapshot);
         socket.emit('output', snapshot);
         }
      });
   }
   
    socket.on('check', function(ticker){
-    var x = (cts.valid(ticker));
-    if(x!==true){
-    socket.emit('notValid', x);
-    } else {
    yahooFinance.snapshot({
       symbol: ticker,
       fields: ['s','n']
       }, function (err, snapshot) {
-        if(err) throw err;
+        if(err) console.log("Not Valid");
         else{
             socket.emit('isValid', snapshot);
             addTicker(ticker);
             }
         });
-        }
     });
     
   function addTicker(ticker){
@@ -88,13 +80,11 @@ MongoClient.connect(process.env.MONGO_URI,function(err,db){
   };
     
   socket.on('remove',function(div){
-    console.log(div);
     var x = div;
     col.findAndModify({type: 'symbols'},{},{$pull: {names: x} },{new: true},
     function(err, doc){
       if(err)throw err;
      else{
-       console.log(doc.value.names);
       socket.emit('update', doc.value.names);
      }
     });

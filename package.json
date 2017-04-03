@@ -6,11 +6,11 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "check-ticker-symbol": "^1.0.0",
     "dotenv": "^2.0.0",
     "express": "3.2.6",
     "mongodb": "2.2.11",
     "socket.io": "0.9.17",
-    "yahoo-finance": "0.2.14"
+    "yahoo-finance": "0.2.14",
+    "google-finance": "0.1.9"
   }
 }
